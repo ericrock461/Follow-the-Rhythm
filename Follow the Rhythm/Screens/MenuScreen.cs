@@ -46,5 +46,15 @@ namespace Follow_the_Rhythm
             Button btn = (Button)sender;
             btn.BackColor = Color.Gold;
         }
+
+        private void title_Click(object sender, EventArgs e)
+        {
+            //ooooooooops
+        }
+
+        private void subtitle_Click(object sender, EventArgs e)
+        {
+            //why is this happening!?!?!?!?!
+        }
     }
 }

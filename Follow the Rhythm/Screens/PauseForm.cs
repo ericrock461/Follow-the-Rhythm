@@ -71,5 +71,10 @@ namespace Follow_the_Rhythm
             Button btn = (Button)sender;
             btn.BackColor = Color.Gold;
         }
+
+        private void instructionsButton_Click(object sender, EventArgs e)
+        {
+            //MainForm.ChangeScreen(this, "Instructions Screen");
+        }
     }
 }

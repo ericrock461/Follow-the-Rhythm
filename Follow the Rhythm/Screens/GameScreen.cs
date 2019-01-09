@@ -19,9 +19,14 @@ namespace Follow_the_Rhythm
         //player2 button control keys - DO NOT CHANGE
         Boolean aDown, sDown, dDown, wDown, cDown, vDown, xDown, zDown;
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            //NOOOOOOOOOOOOOO
+        }
+
         //TODO create your global game variables here
-        int heroX, heroY, heroSize, heroSpeed;
-        SolidBrush heroBrush = new SolidBrush(Color.Black);
+        int noteX, noteY, noteSize, noteSpeed;
+        SolidBrush noteBrush = new SolidBrush(Color.Blue);
 
         public GameScreen()
         {
@@ -33,10 +38,13 @@ namespace Follow_the_Rhythm
         {
             //TODO - setup all your initial game values here. Use this method
             // each time you restart your game to reset all values.
-            heroX = 100;
-            heroY = 100;
-            heroSize = 20;
-            heroSpeed = 5;
+            noteX = 100;
+            noteY = 100;
+            noteSize = 20;
+            noteSpeed = 5;
+
+            ///remember to make a list for all  4 areas you will need notes. Do you even need one though?
+            ///They will all have the same properties.
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -117,29 +125,13 @@ namespace Follow_the_Rhythm
         /// </summary>
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //TODO move main character 
-            if (leftArrowDown == true)
+            //TODO move arrows (notes) down the screen
             {
-                heroX = heroX - heroSpeed;
+                noteY = noteY + noteSpeed;
             }
-            if (downArrowDown == true)
-            {
-                heroY = heroY + heroSpeed;
-            }
-            if (rightArrowDown == true)
-            {
-                heroX = heroX + heroSpeed;
-            }
-            if (upArrowDown == true)
-            {
-                heroY = heroY - heroSpeed;
-            }
-
-            //TODO move npc characters
-
-
+            
             //TODO collisions checks 
-
+            //between the arrows themselves and the icons at the bottom of screen
 
             //calls the GameScreen_Paint method to draw the screen.
             Refresh();
@@ -150,7 +142,9 @@ namespace Follow_the_Rhythm
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             //draw rectangle to screen
-            e.Graphics.FillRectangle(heroBrush, heroX, heroY, heroSize, heroSize);
+            //also, I guess you could use a picture and move that down, but it would be nice if you
+            //could create an actual arrow Method, like with draw star and drawtriangle
+            e.Graphics.FillRectangle(noteBrush, noteX, noteY, noteSize, noteSize);
         }
     }
 
