@@ -17,7 +17,7 @@ namespace Follow_the_Rhythm
         Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, bDown, nDown, mDown, spaceDown;
 
         //player2 button control keys - DO NOT CHANGE
-        Boolean aDown, sDown, dDown, wDown, cDown, vDown, xDown, zDown;
+        //Boolean aDown, sDown, dDown, wDown, cDown, vDown, xDown, zDown;
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -25,7 +25,29 @@ namespace Follow_the_Rhythm
         }
 
         //TODO create your global game variables here
-        int noteX, noteY, noteSize, noteSpeed;
+        int noteX, noteY;
+        int noteSize = 0;
+        int noteSpeed = 0;
+
+        int excelCount = 0;
+        int greatCount = 0;
+        int okCount = 0;
+        int missCount = 0;
+
+        List<int> noteXList = new List<int>();
+
+        private void missLabel_Click(object sender, EventArgs e)
+        {
+            //OOOOOOPS
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+            //NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    ;
+        }
+
+        List<int> noteYList = new List<int>();
+
         SolidBrush noteBrush = new SolidBrush(Color.Blue);
 
         public GameScreen()
@@ -42,6 +64,18 @@ namespace Follow_the_Rhythm
             noteY = 100;
             noteSize = 20;
             noteSpeed = 5;
+
+            noteXList.Add(100);
+            noteYList.Add(0);      
+
+            noteXList.Add(200);
+            noteYList.Add(0);   
+
+            noteXList.Add(300);
+            noteYList.Add(0);
+
+            noteXList.Add(400);
+            noteYList.Add(0);
 
             ///remember to make a list for all  4 areas you will need notes. Do you even need one though?
             ///They will all have the same properties.
@@ -141,10 +175,10 @@ namespace Follow_the_Rhythm
         //Everything that is to be drawn on the screen should be done here
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            //draw rectangle to screen
-            //also, I guess you could use a picture and move that down, but it would be nice if you
-            //could create an actual arrow Method, like with draw star and drawtriangle
-            e.Graphics.FillRectangle(noteBrush, noteX, noteY, noteSize, noteSize);
+            for (int i = 0; i < noteXList.Count; i++)
+            {
+                e.Graphics.FillRectangle(noteBrush, noteXList[i], noteYList[i], noteSize, noteSize);
+            }
         }
     }
 
