@@ -77,8 +77,9 @@ namespace Follow_the_Rhythm
             noteXList.Add(400);
             noteYList.Add(0);
 
-            ///remember to make a list for all  4 areas you will need notes. Do you even need one though?
-            ///They will all have the same properties.
+            ///remember to make a list for all 4 areas you will need notes. Do you even need one though?
+            ///Wait..... do I need a separate list for each note-drop point?
+            ///Notes will all have the same properties, including size and speed.
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -160,10 +161,18 @@ namespace Follow_the_Rhythm
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             //TODO move arrows (notes) down the screen
-            {
-                noteY = noteY + noteSpeed;
+            for (int i = 0; i < noteYList.Count; i++)
+            {              
+                {
+                    noteYList[i] = noteYList[i] + noteSpeed;
+                }
             }
-            
+
+            if (noteY > this.Height)
+            {
+                noteY = 0; //how to make notes disappear?
+            }
+
             //TODO collisions checks 
             //between the arrows themselves and the icons at the bottom of screen
 

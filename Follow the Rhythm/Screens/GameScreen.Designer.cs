@@ -57,7 +57,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 320);
+            this.pictureBox1.Location = new System.Drawing.Point(170, 320);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(58, 50);
             this.pictureBox1.TabIndex = 0;
@@ -66,7 +66,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(225, 320);
+            this.pictureBox2.Location = new System.Drawing.Point(244, 320);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(56, 50);
             this.pictureBox2.TabIndex = 1;
@@ -75,7 +75,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(301, 320);
+            this.pictureBox3.Location = new System.Drawing.Point(316, 320);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(63, 50);
             this.pictureBox3.TabIndex = 2;
@@ -84,7 +84,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.Location = new System.Drawing.Point(382, 320);
+            this.pictureBox4.Location = new System.Drawing.Point(396, 320);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(60, 50);
             this.pictureBox4.TabIndex = 3;
@@ -93,22 +93,22 @@
             // excellentLabel
             // 
             this.excellentLabel.AutoSize = true;
-            this.excellentLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.excellentLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.excellentLabel.ForeColor = System.Drawing.Color.ForestGreen;
-            this.excellentLabel.Location = new System.Drawing.Point(12, 102);
+            this.excellentLabel.Location = new System.Drawing.Point(1, 66);
             this.excellentLabel.Name = "excellentLabel";
-            this.excellentLabel.Size = new System.Drawing.Size(90, 20);
+            this.excellentLabel.Size = new System.Drawing.Size(73, 16);
             this.excellentLabel.TabIndex = 4;
             this.excellentLabel.Text = "Excellent:";
             // 
             // greatLabel
             // 
             this.greatLabel.AutoSize = true;
-            this.greatLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.greatLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.greatLabel.ForeColor = System.Drawing.Color.LimeGreen;
-            this.greatLabel.Location = new System.Drawing.Point(12, 135);
+            this.greatLabel.Location = new System.Drawing.Point(28, 126);
             this.greatLabel.Name = "greatLabel";
-            this.greatLabel.Size = new System.Drawing.Size(61, 20);
+            this.greatLabel.Size = new System.Drawing.Size(50, 16);
             this.greatLabel.TabIndex = 5;
             this.greatLabel.Text = "Great:";
             this.greatLabel.Click += new System.EventHandler(this.label2_Click);
@@ -117,22 +117,22 @@
             // 
             this.okLabel.AutoSize = true;
             this.okLabel.BackColor = System.Drawing.Color.Black;
-            this.okLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.okLabel.ForeColor = System.Drawing.Color.GreenYellow;
-            this.okLabel.Location = new System.Drawing.Point(17, 175);
+            this.okLabel.Location = new System.Drawing.Point(42, 188);
             this.okLabel.Name = "okLabel";
-            this.okLabel.Size = new System.Drawing.Size(40, 20);
+            this.okLabel.Size = new System.Drawing.Size(32, 16);
             this.okLabel.TabIndex = 6;
             this.okLabel.Text = "OK:";
             // 
             // missLabel
             // 
             this.missLabel.AutoSize = true;
-            this.missLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.missLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.missLabel.ForeColor = System.Drawing.Color.Red;
-            this.missLabel.Location = new System.Drawing.Point(17, 211);
+            this.missLabel.Location = new System.Drawing.Point(36, 251);
             this.missLabel.Name = "missLabel";
-            this.missLabel.Size = new System.Drawing.Size(52, 20);
+            this.missLabel.Size = new System.Drawing.Size(42, 16);
             this.missLabel.TabIndex = 8;
             this.missLabel.Text = "Miss:";
             this.missLabel.Click += new System.EventHandler(this.missLabel_Click);
@@ -140,43 +140,47 @@
             // exCount
             // 
             this.exCount.AutoSize = true;
-            this.exCount.ForeColor = System.Drawing.Color.White;
-            this.exCount.Location = new System.Drawing.Point(109, 107);
+            this.exCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.exCount.Location = new System.Drawing.Point(70, 47);
             this.exCount.Name = "exCount";
-            this.exCount.Size = new System.Drawing.Size(35, 13);
+            this.exCount.Size = new System.Drawing.Size(36, 39);
             this.exCount.TabIndex = 9;
-            this.exCount.Text = "label1";
+            this.exCount.Text = "0";
             // 
             // grCount
             // 
             this.grCount.AutoSize = true;
-            this.grCount.ForeColor = System.Drawing.Color.White;
-            this.grCount.Location = new System.Drawing.Point(117, 156);
+            this.grCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grCount.ForeColor = System.Drawing.Color.LimeGreen;
+            this.grCount.Location = new System.Drawing.Point(70, 107);
             this.grCount.Name = "grCount";
-            this.grCount.Size = new System.Drawing.Size(35, 13);
+            this.grCount.Size = new System.Drawing.Size(36, 39);
             this.grCount.TabIndex = 10;
-            this.grCount.Text = "label2";
+            this.grCount.Text = "0";
             this.grCount.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // oCount
             // 
             this.oCount.AutoSize = true;
-            this.oCount.ForeColor = System.Drawing.Color.White;
-            this.oCount.Location = new System.Drawing.Point(115, 196);
+            this.oCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oCount.ForeColor = System.Drawing.Color.GreenYellow;
+            this.oCount.Location = new System.Drawing.Point(70, 169);
             this.oCount.Name = "oCount";
-            this.oCount.Size = new System.Drawing.Size(35, 13);
+            this.oCount.Size = new System.Drawing.Size(36, 39);
             this.oCount.TabIndex = 11;
-            this.oCount.Text = "label3";
+            this.oCount.Text = "0";
             // 
             // msCount
             // 
             this.msCount.AutoSize = true;
-            this.msCount.ForeColor = System.Drawing.Color.White;
-            this.msCount.Location = new System.Drawing.Point(118, 234);
+            this.msCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msCount.ForeColor = System.Drawing.Color.Red;
+            this.msCount.Location = new System.Drawing.Point(70, 232);
             this.msCount.Name = "msCount";
-            this.msCount.Size = new System.Drawing.Size(35, 13);
+            this.msCount.Size = new System.Drawing.Size(36, 39);
             this.msCount.TabIndex = 12;
-            this.msCount.Text = "label4";
+            this.msCount.Text = "0";
             // 
             // GameScreen
             // 
@@ -197,7 +201,7 @@
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(611, 383);
+            this.Size = new System.Drawing.Size(628, 383);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);
