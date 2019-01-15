@@ -24,6 +24,14 @@ namespace Follow_the_Rhythm
             //NOOOOOOOOOOOOOO
         }
 
+        //But... if I'm going to just use images for the notes, instead of drawing them.....
+        //how does that work!? And what will I draw to the screen!? Nothing!?!?!
+        //Or, I could create a note method to use for the falling notes and the icons
+        //and what if I can't get note icons? Then I would have to draw the notes...
+
+        //create a variable that tracks time between arrow appearances...?
+
+
         //TODO create your global game variables here
         int noteX, noteY;
         int noteSize = 0;
@@ -33,6 +41,8 @@ namespace Follow_the_Rhythm
         int greatCount = 0;
         int okCount = 0;
         int missCount = 0;
+
+        Rectangle box1 = new Rectangle(170, 320, 58, 50);
 
         List<int> noteXList = new List<int>();
 
@@ -44,6 +54,11 @@ namespace Follow_the_Rhythm
         private void label2_Click_1(object sender, EventArgs e)
         {
             //NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    ;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
 
         List<int> noteYList = new List<int>();
@@ -62,19 +77,19 @@ namespace Follow_the_Rhythm
             // each time you restart your game to reset all values.
             noteX = 100;
             noteY = 100;
-            noteSize = 20;
+            noteSize = 38;
             noteSpeed = 5;
 
-            noteXList.Add(100);
+            noteXList.Add(150);
             noteYList.Add(0);      
 
-            noteXList.Add(200);
+            noteXList.Add(240);
             noteYList.Add(0);   
 
-            noteXList.Add(300);
+            noteXList.Add(330);
             noteYList.Add(0);
 
-            noteXList.Add(400);
+            noteXList.Add(420);
             noteYList.Add(0);
 
             ///remember to make a list for all 4 areas you will need notes. Do you even need one though?
@@ -121,18 +136,25 @@ namespace Follow_the_Rhythm
                 case Keys.Up:
                     upArrowDown = true;
                     break;
+
+                case Keys.B:
+                    bDown = true;
+                    break;
                 case Keys.Space:
                     spaceDown = true;
                     break;
+                case Keys.N:
+                    nDown = true;
+                    break;
                 case Keys.M:
                     mDown = true;
-                    break;
+                    break;                
             }
         }
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            //TODO - basic player 1 key up bools set below. Add remainging key up
+            //TODO - basic player 1 key up bools set below. Add remaining key up
             // required for player 1 or player 2 here.
 
             //player 1 button releases
@@ -150,6 +172,19 @@ namespace Follow_the_Rhythm
                 case Keys.Up:
                     upArrowDown = false;
                     break;
+
+                case Keys.B:
+                    bDown = false;
+                    break;
+                case Keys.Space:
+                    spaceDown = false;
+                    break;
+                case Keys.M:
+                    mDown = false;
+                    break;
+                case Keys.N:
+                    nDown = false;
+                    break;
             }
         }
 
@@ -158,6 +193,9 @@ namespace Follow_the_Rhythm
         /// if the interval is set to 16 then it will run each 16ms or approx. 50 times
         /// per second
         /// </summary>
+        /// 
+        // 170, 320
+        //58x50
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             //TODO move arrows (notes) down the screen
@@ -166,20 +204,44 @@ namespace Follow_the_Rhythm
                 {
                     noteYList[i] = noteYList[i] + noteSpeed;
                 }
+                noteCounter.Text = noteYList.Count() + " / 100";
+                //I wish I had a list for complete notes, not separate X and Y lists.......
+                //I feel like it would be easier dealing with whole objects rather then separate X and Y lists
+
+                /*if (noteYList[i] > this.Height)
+                {
+                    noteYList.Remove();
+                    //how would I do this???
+                }*/
             }
 
-            if (noteY > this.Height)
+            /*if (noteYList[i] > this.Height)
             {
-                noteY = 0; //how to make notes disappear?
-            }
+                noteYList.Remove(number placement of note. If it's note 2 you put 2);
+            }*/
 
             //TODO collisions checks 
             //between the arrows themselves and the icons at the bottom of screen
+            Rectangle noteIconRec1 = new Rectangle(noteX, noteY, noteSize, noteSize);
+            Rectangle noteIconRec2 = new Rectangle(noteX, noteY, noteSize, noteSize);
+            Rectangle noteIconRec3 = new Rectangle(noteX, noteY, noteSize, noteSize);
+            Rectangle noteIconRec4 = new Rectangle(noteX, noteY, noteSize, noteSize);
+
+            for (int i = 0; i < noteYList.Count; i++)
+            {
+                Rectangle noteRec = new Rectangle(noteXList[i], noteYList[i], noteSize, noteSize);
+
+                while (noteIconRec1.IntersectsWith(noteRec) )
+                {
+                    //if player presses key it dissapears and adds to a tally, which tally depends on the timing of
+                    //the press in relation to the note's position over the note icon at the bottom
+                    // to delete a note, do noteList.Remove(2);
+                }
+            }
 
             //calls the GameScreen_Paint method to draw the screen.
             Refresh();
         }
-
 
         //Everything that is to be drawn on the screen should be done here
         private void GameScreen_Paint(object sender, PaintEventArgs e)
@@ -188,7 +250,30 @@ namespace Follow_the_Rhythm
             {
                 e.Graphics.FillRectangle(noteBrush, noteXList[i], noteYList[i], noteSize, noteSize);
             }
+
+            for (int i = 0; i < 4; i++)
+            {
+                e.Graphics.DrawImage(Properties.Resources.down, 165 +i*80, 311, 62, 62);
+            }
+
+            //Pen notePen = new Pen(Color.White);
+            //Notes(notePen, noteX, noteY, noteSize);
         }
+
+        /*private void Notes(Pen notePen, float x, float y, float size)
+        {
+            Graphics g = this.CreateGraphics();
+
+            float scale = size / 130;
+
+            g.DrawLine(notePen, (55 * scale) + x, (55 * scale) + y, (405 * scale) + x, (151 * scale) + y);
+            g.DrawLine(notePen, (405 * scale) + x, (151 * scale) + y, (295 * scale) + x, (238 * scale) + y);
+            g.DrawLine(notePen, (295 * scale) + x, (238 * scale) + y, (425 * scale) + x, (357 * scale) + y);
+            g.DrawLine(notePen, (425 * scale) + x, (357 * scale) + y, (354 * scale) + x, (422 * scale) + y);
+            g.DrawLine(notePen, (354 * scale) + x, (422 * scale) + y, (210 * scale) + x, (292 * scale) + y);
+            g.DrawLine(notePen, (210 * scale) + x, (292 * scale) + y, (91 * scale) + x, (427 * scale) + y);
+            g.DrawLine(notePen, (91 * scale) + x, (427 * scale) + y, (55 * scale) + x, (55 * scale) + y);
+        }*/
     }
 
 }

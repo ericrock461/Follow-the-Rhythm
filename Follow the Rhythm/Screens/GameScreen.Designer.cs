@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.excellentLabel = new System.Windows.Forms.Label();
             this.greatLabel = new System.Windows.Forms.Label();
             this.okLabel = new System.Windows.Forms.Label();
@@ -42,10 +38,8 @@
             this.grCount = new System.Windows.Forms.Label();
             this.oCount = new System.Windows.Forms.Label();
             this.msCount = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.countLabel = new System.Windows.Forms.Label();
+            this.noteCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -53,42 +47,6 @@
             this.gameTimer.Enabled = true;
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(170, 320);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(244, 320);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(56, 50);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(316, 320);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.Location = new System.Drawing.Point(396, 320);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(60, 50);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
             // 
             // excellentLabel
             // 
@@ -182,11 +140,34 @@
             this.msCount.TabIndex = 12;
             this.msCount.Text = "0";
             // 
+            // countLabel
+            // 
+            this.countLabel.AutoSize = true;
+            this.countLabel.ForeColor = System.Drawing.Color.DarkOrange;
+            this.countLabel.Location = new System.Drawing.Point(532, 320);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(61, 13);
+            this.countLabel.TabIndex = 13;
+            this.countLabel.Text = "Note Count";
+            // 
+            // noteCounter
+            // 
+            this.noteCounter.AutoSize = true;
+            this.noteCounter.Font = new System.Drawing.Font("Bell Gothic Std Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteCounter.ForeColor = System.Drawing.Color.DarkOrange;
+            this.noteCounter.Location = new System.Drawing.Point(520, 338);
+            this.noteCounter.Name = "noteCounter";
+            this.noteCounter.Size = new System.Drawing.Size(83, 32);
+            this.noteCounter.TabIndex = 14;
+            this.noteCounter.Text = "0/100";
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.noteCounter);
+            this.Controls.Add(this.countLabel);
             this.Controls.Add(this.msCount);
             this.Controls.Add(this.oCount);
             this.Controls.Add(this.grCount);
@@ -195,20 +176,12 @@
             this.Controls.Add(this.okLabel);
             this.Controls.Add(this.greatLabel);
             this.Controls.Add(this.excellentLabel);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.Name = "GameScreen";
             this.Size = new System.Drawing.Size(628, 383);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,10 +190,6 @@
         #endregion
 
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label excellentLabel;
         private System.Windows.Forms.Label greatLabel;
         private System.Windows.Forms.Label okLabel;
@@ -229,5 +198,7 @@
         private System.Windows.Forms.Label grCount;
         private System.Windows.Forms.Label oCount;
         private System.Windows.Forms.Label msCount;
+        private System.Windows.Forms.Label countLabel;
+        private System.Windows.Forms.Label noteCounter;
     }
 }
