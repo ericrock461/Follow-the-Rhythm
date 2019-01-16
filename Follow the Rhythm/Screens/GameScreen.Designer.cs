@@ -40,6 +40,9 @@
             this.msCount = new System.Windows.Forms.Label();
             this.countLabel = new System.Windows.Forms.Label();
             this.noteCounter = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.booLabel = new System.Windows.Forms.Label();
+            this.boCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -161,11 +164,45 @@
             this.noteCounter.TabIndex = 14;
             this.noteCounter.Text = "0/100";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 311);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
+            // 
+            // booLabel
+            // 
+            this.booLabel.AutoSize = true;
+            this.booLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.booLabel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.booLabel.Location = new System.Drawing.Point(36, 308);
+            this.booLabel.Name = "booLabel";
+            this.booLabel.Size = new System.Drawing.Size(38, 16);
+            this.booLabel.TabIndex = 16;
+            this.booLabel.Text = "Boo:";
+            // 
+            // boCount
+            // 
+            this.boCount.AutoSize = true;
+            this.boCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boCount.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.boCount.Location = new System.Drawing.Point(70, 290);
+            this.boCount.Name = "boCount";
+            this.boCount.Size = new System.Drawing.Size(36, 39);
+            this.boCount.TabIndex = 17;
+            this.boCount.Text = "0";
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.boCount);
+            this.Controls.Add(this.booLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.noteCounter);
             this.Controls.Add(this.countLabel);
             this.Controls.Add(this.msCount);
@@ -200,5 +237,8 @@
         private System.Windows.Forms.Label msCount;
         private System.Windows.Forms.Label countLabel;
         private System.Windows.Forms.Label noteCounter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label booLabel;
+        private System.Windows.Forms.Label boCount;
     }
 }

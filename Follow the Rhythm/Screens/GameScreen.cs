@@ -41,10 +41,12 @@ namespace Follow_the_Rhythm
         int greatCount = 0;
         int okCount = 0;
         int missCount = 0;
-
-        Rectangle box1 = new Rectangle(170, 320, 58, 50);
+        int booCount = 0;
 
         List<int> noteXList = new List<int>();
+        List<int> noteYList = new List<int>();
+
+        SolidBrush noteBrush = new SolidBrush(Color.Blue);
 
         private void missLabel_Click(object sender, EventArgs e)
         {
@@ -61,9 +63,7 @@ namespace Follow_the_Rhythm
 
         }
 
-        List<int> noteYList = new List<int>();
 
-        SolidBrush noteBrush = new SolidBrush(Color.Blue);
 
         public GameScreen()
         {
@@ -77,20 +77,25 @@ namespace Follow_the_Rhythm
             // each time you restart your game to reset all values.
             noteX = 100;
             noteY = 100;
-            noteSize = 38;
+            noteSize = 64;
             noteSpeed = 5;
 
-            noteXList.Add(150);
-            noteYList.Add(0);      
-
-            noteXList.Add(240);
-            noteYList.Add(0);   
-
-            noteXList.Add(330);
+            noteXList.Add(165);
             noteYList.Add(0);
 
-            noteXList.Add(420);
+            noteXList.Add(245);
             noteYList.Add(0);
+
+            noteXList.Add(325);
+            noteYList.Add(0);
+
+            noteXList.Add(405);
+            noteYList.Add(0);
+
+            //g.DrawString("Excellent", drawFont, drawBrush, 1, 66);
+            // So I'm wondering if drawing all the labels would be better, 
+            //since I need like 5 different pens and things...
+
 
             ///remember to make a list for all 4 areas you will need notes. Do you even need one though?
             ///Wait..... do I need a separate list for each note-drop point?
@@ -148,7 +153,7 @@ namespace Follow_the_Rhythm
                     break;
                 case Keys.M:
                     mDown = true;
-                    break;                
+                    break;
             }
         }
 
@@ -194,13 +199,11 @@ namespace Follow_the_Rhythm
         /// per second
         /// </summary>
         /// 
-        // 170, 320
-        //58x50
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             //TODO move arrows (notes) down the screen
             for (int i = 0; i < noteYList.Count; i++)
-            {              
+            {
                 {
                     noteYList[i] = noteYList[i] + noteSpeed;
                 }
@@ -214,6 +217,7 @@ namespace Follow_the_Rhythm
                     //how would I do this???
                 }*/
             }
+            //how do I remove arrows altogether if they go offscreen?
 
             /*if (noteYList[i] > this.Height)
             {
@@ -222,21 +226,62 @@ namespace Follow_the_Rhythm
 
             //TODO collisions checks 
             //between the arrows themselves and the icons at the bottom of screen
-            Rectangle noteIconRec1 = new Rectangle(noteX, noteY, noteSize, noteSize);
-            Rectangle noteIconRec2 = new Rectangle(noteX, noteY, noteSize, noteSize);
-            Rectangle noteIconRec3 = new Rectangle(noteX, noteY, noteSize, noteSize);
-            Rectangle noteIconRec4 = new Rectangle(noteX, noteY, noteSize, noteSize);
+
+            //Rectangle noteRec2 = new Rectangle(noteX, noteY, noteSize, noteSize);
+
+            //Rectangle noteBox3 = new Rectangle(noteX, noteY, noteSize, noteSize);
+            //Rectangle noteBox4 = new Rectangle(noteX, noteY, noteSize, noteSize);
+
+            Rectangle boxRec1 = new Rectangle(165, 310, 64, 64);
+            Rectangle boxRec2 = new Rectangle(245, 310, 64, 64);
+            Rectangle boxRec3 = new Rectangle(325, 310, 64, 64);
+            Rectangle boxRec4 = new Rectangle(405, 310, 64, 64);
 
             for (int i = 0; i < noteYList.Count; i++)
             {
-                Rectangle noteRec = new Rectangle(noteXList[i], noteYList[i], noteSize, noteSize);
-
-                while (noteIconRec1.IntersectsWith(noteRec) )
+                if (noteYList[i] > this.Height)
                 {
+                    noteYList.RemoveAt(i);
+                    noteXList.RemoveAt(i);
+                    break;
+                }
+            }
+
+            for (int i = 0; i < noteYList.Count; i++)
+            {
+                Rectangle noteRec1 = new Rectangle(noteXList[i], noteYList[i], noteSize, noteSize);
+
+                if (noteRec1.IntersectsWith(boxRec1))
+                {
+                    noteXList[i]++;
+
                     //if player presses key it dissapears and adds to a tally, which tally depends on the timing of
                     //the press in relation to the note's position over the note icon at the bottom
                     // to delete a note, do noteList.Remove(2);
+
+                    //while collision is happening, I need to program what can happen when you press
+                    //a key depending on the location of the note in relation to the box
+
+                    if (leftArrowDown == true)
+                    {
+                        noteYList.RemoveAt(i);
+                        noteXList.RemoveAt(i);
+                       
+                        excelCount++;
+                        exCount.Text = excelCount + "";
+                        //noteYList.Remove(0);
+                    }
+                    if (rightArrowDown == true || upArrowDown == true || rightArrowDown == true)
+                    {
+                        booCount++;
+                        boCount.Text = booCount + "";
+                    }
                 }
+
+                //if (noteYList(i).IntersectsWith(boxRec2))
+               // {
+
+                //}
             }
 
             //calls the GameScreen_Paint method to draw the screen.
@@ -253,27 +298,33 @@ namespace Follow_the_Rhythm
 
             for (int i = 0; i < 4; i++)
             {
-                e.Graphics.DrawImage(Properties.Resources.down, 165 +i*80, 311, 62, 62);
+                e.Graphics.DrawImage(Properties.Resources.down, 165 + i * 80, 311, 64, 64);
             }
 
-            //Pen notePen = new Pen(Color.White);
+            Pen notePen = new Pen(Color.White);
             //Notes(notePen, noteX, noteY, noteSize);
+            int x = noteX;
+            int y = noteY;
+            float scale = noteSize / 130;
+
+            e.Graphics.DrawLine(notePen, (55 * scale) + x, (55 * scale) + y, (405 * scale) + x, (151 * scale) + y);
+            e.Graphics.DrawLine(notePen, (405 * scale) + x, (151 * scale) + y, (295 * scale) + x, (238 * scale) + y);
+            e.Graphics.DrawLine(notePen, (295 * scale) + x, (238 * scale) + y, (425 * scale) + x, (357 * scale) + y);
+            e.Graphics.DrawLine(notePen, (425 * scale) + x, (357 * scale) + y, (354 * scale) + x, (422 * scale) + y);
+            e.Graphics.DrawLine(notePen, (354 * scale) + x, (422 * scale) + y, (210 * scale) + x, (292 * scale) + y);
+            e.Graphics.DrawLine(notePen, (210 * scale) + x, (292 * scale) + y, (91 * scale) + x, (427 * scale) + y);
+            e.Graphics.DrawLine(notePen, (91 * scale) + x, (427 * scale) + y, (55 * scale) + x, (55 * scale) + y);
+
+            SolidBrush collisionBrush = new SolidBrush(Color.Red);
+            
+            //to help visualize collision
+            e.Graphics.FillRectangle(collisionBrush, 165, 310, 64, 64);
+            e.Graphics.FillRectangle(collisionBrush, 245, 310, 64, 64);
+            e.Graphics.FillRectangle(collisionBrush, 325, 310, 64, 64);
+            e.Graphics.FillRectangle(collisionBrush, 405, 310, 64, 64);
         }
 
-        /*private void Notes(Pen notePen, float x, float y, float size)
-        {
-            Graphics g = this.CreateGraphics();
-
-            float scale = size / 130;
-
-            g.DrawLine(notePen, (55 * scale) + x, (55 * scale) + y, (405 * scale) + x, (151 * scale) + y);
-            g.DrawLine(notePen, (405 * scale) + x, (151 * scale) + y, (295 * scale) + x, (238 * scale) + y);
-            g.DrawLine(notePen, (295 * scale) + x, (238 * scale) + y, (425 * scale) + x, (357 * scale) + y);
-            g.DrawLine(notePen, (425 * scale) + x, (357 * scale) + y, (354 * scale) + x, (422 * scale) + y);
-            g.DrawLine(notePen, (354 * scale) + x, (422 * scale) + y, (210 * scale) + x, (292 * scale) + y);
-            g.DrawLine(notePen, (210 * scale) + x, (292 * scale) + y, (91 * scale) + x, (427 * scale) + y);
-            g.DrawLine(notePen, (91 * scale) + x, (427 * scale) + y, (55 * scale) + x, (55 * scale) + y);
-        }*/
+        //Notes(Pen notePen, float x, float y, float size)
     }
 
 }
