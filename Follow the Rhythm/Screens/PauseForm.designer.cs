@@ -30,7 +30,6 @@
         {
             this.continueButton = new System.Windows.Forms.Button();
             this.backLabel = new System.Windows.Forms.Label();
-            this.unpauseLabel = new System.Windows.Forms.Label();
             this.instructionsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,17 +58,6 @@
             this.backLabel.Name = "backLabel";
             this.backLabel.Size = new System.Drawing.Size(409, 267);
             this.backLabel.TabIndex = 2;
-            // 
-            // unpauseLabel
-            // 
-            this.unpauseLabel.BackColor = System.Drawing.Color.Indigo;
-            this.unpauseLabel.Font = new System.Drawing.Font("Myanmar Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unpauseLabel.ForeColor = System.Drawing.Color.Thistle;
-            this.unpauseLabel.Location = new System.Drawing.Point(12, 342);
-            this.unpauseLabel.Name = "unpauseLabel";
-            this.unpauseLabel.Size = new System.Drawing.Size(148, 23);
-            this.unpauseLabel.TabIndex = 3;
-            this.unpauseLabel.Text = "Esc: Unpause";
             // 
             // instructionsButton
             // 
@@ -106,7 +94,6 @@
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(533, 374);
             this.Controls.Add(this.instructionsButton);
-            this.Controls.Add(this.unpauseLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.backLabel);
@@ -123,7 +110,6 @@
 
         private System.Windows.Forms.Button continueButton;
         private System.Windows.Forms.Label backLabel;
-        private System.Windows.Forms.Label unpauseLabel;
         private System.Windows.Forms.Button instructionsButton;
         private System.Windows.Forms.Button exitButton;
     }

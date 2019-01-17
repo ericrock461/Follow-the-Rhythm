@@ -58,11 +58,10 @@ namespace Follow_the_Rhythm
             //NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    ;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
+        //private void pictureBox2_Click(object sender, EventArgs e)
+        //{
 
-        }
-
+       // }
 
 
         public GameScreen()
@@ -84,27 +83,27 @@ namespace Follow_the_Rhythm
             noteYList.Add(0);
 
             noteXList.Add(245);
-            noteYList.Add(0);
+            noteYList.Add(70);
 
             noteXList.Add(325);
-            noteYList.Add(0);
+            noteYList.Add(120);
 
             noteXList.Add(405);
-            noteYList.Add(0);
+            noteYList.Add(120);
 
             //g.DrawString("Excellent", drawFont, drawBrush, 1, 66);
-            // So I'm wondering if drawing all the labels would be better, 
+            // So I'm wondering if drawing all the labels would be better or worse, 
             //since I need like 5 different pens and things...
 
 
-            ///remember to make a list for all 4 areas you will need notes. Do you even need one though?
-            ///Wait..... do I need a separate list for each note-drop point?
+          
             ///Notes will all have the same properties, including size and speed.
+            /// I just don't know how I'm going to create each new note...
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            // opens a pause screen is escape is pressed. Depending on what is pressed
+            // opens a pause screen if escape is pressed. Depending on what is pressed
             // on pause screen the program will either continue or exit to main menu
             if (e.KeyCode == Keys.Escape && gameTimer.Enabled)
             {
@@ -123,10 +122,9 @@ namespace Follow_the_Rhythm
                 }
             }
 
-            //TODO - basic player 1 key down bools set below. Add remainging key down
-            // required for player 1 or player 2 here.
+            //basic player 1 key down bools set below
+            //(player 1 button presses)
 
-            //player 1 button presses
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -159,10 +157,9 @@ namespace Follow_the_Rhythm
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            //TODO - basic player 1 key up bools set below. Add remaining key up
-            // required for player 1 or player 2 here.
+            //basic player 1 key up bools set below
+            //(player 1 button releases)
 
-            //player 1 button releases
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -201,41 +198,23 @@ namespace Follow_the_Rhythm
         /// 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //TODO move arrows (notes) down the screen
+            //move arrows (notes) down the screen
             for (int i = 0; i < noteYList.Count; i++)
             {
                 {
                     noteYList[i] = noteYList[i] + noteSpeed;
                 }
-                noteCounter.Text = noteYList.Count() + " / 100";
-                //I wish I had a list for complete notes, not separate X and Y lists.......
-                //I feel like it would be easier dealing with whole objects rather then separate X and Y lists
 
-                /*if (noteYList[i] > this.Height)
-                {
-                    noteYList.Remove();
-                    //how would I do this???
-                }*/
+                noteCounter.Text = noteYList.Count() + " / 100";              
             }
-            //how do I remove arrows altogether if they go offscreen?
 
-            /*if (noteYList[i] > this.Height)
-            {
-                noteYList.Remove(number placement of note. If it's note 2 you put 2);
-            }*/
+            //collisions checks 
+            //(between the arrows themselves and the icons at the bottom of screen)
 
-            //TODO collisions checks 
-            //between the arrows themselves and the icons at the bottom of screen
-
-            //Rectangle noteRec2 = new Rectangle(noteX, noteY, noteSize, noteSize);
-
-            //Rectangle noteBox3 = new Rectangle(noteX, noteY, noteSize, noteSize);
-            //Rectangle noteBox4 = new Rectangle(noteX, noteY, noteSize, noteSize);
-
-            Rectangle boxRec1 = new Rectangle(165, 310, 64, 64);
-            Rectangle boxRec2 = new Rectangle(245, 310, 64, 64);
-            Rectangle boxRec3 = new Rectangle(325, 310, 64, 64);
-            Rectangle boxRec4 = new Rectangle(405, 310, 64, 64);
+            Rectangle boxRec1 = new Rectangle(165, 300, 64, 64);
+            Rectangle boxRec2 = new Rectangle(245, 300, 64, 64);
+            Rectangle boxRec3 = new Rectangle(325, 300, 64, 64);
+            Rectangle boxRec4 = new Rectangle(405, 300, 64, 64);
 
             for (int i = 0; i < noteYList.Count; i++)
             {
@@ -243,45 +222,97 @@ namespace Follow_the_Rhythm
                 {
                     noteYList.RemoveAt(i);
                     noteXList.RemoveAt(i);
+
+                    missCount++;
+                    msCount.Text = missCount + "";
                     break;
                 }
             }
 
             for (int i = 0; i < noteYList.Count; i++)
             {
-                Rectangle noteRec1 = new Rectangle(noteXList[i], noteYList[i], noteSize, noteSize);
+                
+                //Collision rectangle for all notes falling down the screen
+                Rectangle noteRec = new Rectangle(noteXList[i], noteYList[i], noteSize, noteSize);
 
-                if (noteRec1.IntersectsWith(boxRec1))
+                if (noteRec.IntersectsWith(boxRec1))
                 {
-                    noteXList[i]++;
 
                     //if player presses key it dissapears and adds to a tally, which tally depends on the timing of
                     //the press in relation to the note's position over the note icon at the bottom
-                    // to delete a note, do noteList.Remove(2);
 
                     //while collision is happening, I need to program what can happen when you press
                     //a key depending on the location of the note in relation to the box
 
+                    //left arrow code
                     if (leftArrowDown == true)
                     {
                         noteYList.RemoveAt(i);
                         noteXList.RemoveAt(i);
-                       
+
                         excelCount++;
                         exCount.Text = excelCount + "";
-                        //noteYList.Remove(0);
                     }
-                    if (rightArrowDown == true || upArrowDown == true || rightArrowDown == true)
+                    if (downArrowDown == true || upArrowDown == true || rightArrowDown == true)
                     {
                         booCount++;
                         boCount.Text = booCount + "";
                     }
                 }
 
-                //if (noteYList(i).IntersectsWith(boxRec2))
-               // {
+                if (noteRec.IntersectsWith(boxRec2))
+               {
+                    //down arrow code
+                    if (downArrowDown == true)
+                    {
+                        noteYList.RemoveAt(i);
+                        noteXList.RemoveAt(i);
 
-                //}
+                        excelCount++;
+                        exCount.Text = excelCount + "";
+                    }
+                    if (leftArrowDown == true || upArrowDown == true || rightArrowDown == true)
+                    {
+                        booCount++;
+                        boCount.Text = booCount + "";
+                    }                   
+                }
+
+                if (noteRec.IntersectsWith(boxRec3))
+                {
+                    //up arrow code
+                    if (upArrowDown == true)
+                    {
+                        noteYList.RemoveAt(i);
+                        noteXList.RemoveAt(i);
+
+                        excelCount++;
+                        exCount.Text = excelCount + "";
+                    }
+                    if (leftArrowDown == true || downArrowDown == true || rightArrowDown == true)
+                    {
+                        booCount++;
+                        boCount.Text = booCount + "";
+                    }                   
+                }
+
+                if (noteRec.IntersectsWith(boxRec4))
+                {
+                    //right arrow down
+                    if (rightArrowDown == true)
+                    {
+                        noteYList.RemoveAt(i);
+                        noteXList.RemoveAt(i);
+
+                        excelCount++;
+                        exCount.Text = excelCount + "";
+                    }
+                    if (leftArrowDown == true || downArrowDown == true || upArrowDown == true)
+                    {
+                        booCount++;
+                        boCount.Text = booCount + "";
+                    }
+                }                  
             }
 
             //calls the GameScreen_Paint method to draw the screen.
@@ -296,10 +327,6 @@ namespace Follow_the_Rhythm
                 e.Graphics.FillRectangle(noteBrush, noteXList[i], noteYList[i], noteSize, noteSize);
             }
 
-            for (int i = 0; i < 4; i++)
-            {
-                e.Graphics.DrawImage(Properties.Resources.down, 165 + i * 80, 311, 64, 64);
-            }
 
             Pen notePen = new Pen(Color.White);
             //Notes(notePen, noteX, noteY, noteSize);
