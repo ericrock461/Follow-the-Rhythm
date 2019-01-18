@@ -46,6 +46,10 @@ namespace Follow_the_Rhythm
         List<int> noteXList = new List<int>();
         List<int> noteYList = new List<int>();
 
+
+        Font drawFont = new Font("MS Reference Sans Serif", 12, FontStyle.Bold);
+        SolidBrush barBrush = new SolidBrush(Color.Green);
+
         SolidBrush noteBrush = new SolidBrush(Color.Blue);
 
         private void missLabel_Click(object sender, EventArgs e)
@@ -58,12 +62,6 @@ namespace Follow_the_Rhythm
             //NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    ;
         }
 
-        //private void pictureBox2_Click(object sender, EventArgs e)
-        //{
-
-       // }
-
-
         public GameScreen()
         {
             InitializeComponent();
@@ -73,30 +71,49 @@ namespace Follow_the_Rhythm
         public void InitializeGameValues()
         {
             //TODO - setup all your initial game values here. Use this method
-            // each time you restart your game to reset all values.
+            // each time you restart your game to reset all values.    
+
+            ///what I need to do:
+            ///figure out how I'm going to draw/create all 4 note methods
+            ///figure out when to create each new note (I also have to choose a song)
+            ///figure out how to make it so the Boo Counter will NOT be active if multiple notes are over different boxes
+            ///figure out how on earth I'll create a progress bar and a bar for how well you're doing
+            ///I think there were more things... like... how to make the boo counter less sensitive?
+            ///how to work the note counter (oh wait this can replace the progress bar!! (maybe)
+            ///minor thing: how to make it so you can choose buttons with the arrow keys
+
+
+            //PaintEventArgs e;
+
+            //e.TranslateTransform(200, 50);
+            //e.DrawString("| | | | | | |", drawFont, barBrush, new Rectangle());
+            //e.RotateTransform(90);
+           // e.ResetTransform();
+
+
             noteX = 100;
             noteY = 100;
             noteSize = 64;
             noteSpeed = 5;
 
             noteXList.Add(165);
-            noteYList.Add(0);
+            noteYList.Add(-100);
 
             noteXList.Add(245);
-            noteYList.Add(70);
+            noteYList.Add(-70);
 
             noteXList.Add(325);
-            noteYList.Add(120);
+            noteYList.Add(80);
 
             noteXList.Add(405);
-            noteYList.Add(120);
+            noteYList.Add(80);
 
+            //MS Reference Sans Serif size 10
             //g.DrawString("Excellent", drawFont, drawBrush, 1, 66);
             // So I'm wondering if drawing all the labels would be better or worse, 
             //since I need like 5 different pens and things...
 
 
-          
             ///Notes will all have the same properties, including size and speed.
             /// I just don't know how I'm going to create each new note...
         }
@@ -244,6 +261,9 @@ namespace Follow_the_Rhythm
                     //while collision is happening, I need to program what can happen when you press
                     //a key depending on the location of the note in relation to the box
 
+                    //I also need some way to make it so that the boo counter will not activate if there 
+                    //are 2 notes coming down next to each other
+
                     //left arrow code
                     if (leftArrowDown == true)
                     {
@@ -257,6 +277,18 @@ namespace Follow_the_Rhythm
                     {
                         booCount++;
                         boCount.Text = booCount + "";
+                    }
+                    else if (noteRec.IntersectsWith(boxRec1) && noteRec.IntersectsWith(boxRec2))
+                    {
+                        //booCount = doesnt work;
+                    }
+                    else if (noteRec.IntersectsWith(boxRec1) && noteRec.IntersectsWith(boxRec3))
+                    {
+
+                    }
+                    else if (noteRec.IntersectsWith(boxRec1) && noteRec.IntersectsWith(boxRec4))
+                    {
+
                     }
                 }
 

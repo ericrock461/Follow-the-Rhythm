@@ -25,5 +25,20 @@ namespace Follow_the_Rhythm
                 MainForm.ChangeScreen(this, "MenuScreen");
             }
         }
+
+        private void ScoreScreen_Load(object sender, EventArgs e)
+        {
+            //oops
+        }
+
+        private void replayButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
