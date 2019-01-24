@@ -15,7 +15,7 @@ namespace Follow_the_Rhythm
         public ScoreScreen()
         {
             InitializeComponent();
-        }
+        }       
 
         private void ScoreScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -26,19 +26,27 @@ namespace Follow_the_Rhythm
             }
         }
 
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            MainForm.ChangeScreen(this, "MenuScreen");
+        }
+    
         private void ScoreScreen_Load(object sender, EventArgs e)
         {
-            //oops
+           // scoreLabel.Text = "Excellent: " + exCount Great:
+            //OK:
+            //Miss:
+            //Boo:"
         }
 
         private void replayButton_Click(object sender, EventArgs e)
         {
-            
+            //nevermind
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void scoreLabel_Click(object sender, EventArgs e)
         {
-
+            //nevermind
         }
     }
 }

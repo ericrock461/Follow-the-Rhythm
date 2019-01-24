@@ -30,7 +30,6 @@
         {
             this.continueButton = new System.Windows.Forms.Button();
             this.backLabel = new System.Windows.Forms.Label();
-            this.instructionsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -40,7 +39,7 @@
             this.continueButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.continueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.continueButton.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.continueButton.Location = new System.Drawing.Point(177, 89);
+            this.continueButton.Location = new System.Drawing.Point(177, 130);
             this.continueButton.Margin = new System.Windows.Forms.Padding(2);
             this.continueButton.Name = "continueButton";
             this.continueButton.Size = new System.Drawing.Size(176, 32);
@@ -59,25 +58,12 @@
             this.backLabel.Size = new System.Drawing.Size(409, 267);
             this.backLabel.TabIndex = 2;
             // 
-            // instructionsButton
-            // 
-            this.instructionsButton.BackColor = System.Drawing.Color.Thistle;
-            this.instructionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instructionsButton.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionsButton.Location = new System.Drawing.Point(177, 167);
-            this.instructionsButton.Name = "instructionsButton";
-            this.instructionsButton.Size = new System.Drawing.Size(176, 32);
-            this.instructionsButton.TabIndex = 4;
-            this.instructionsButton.Text = "Instructions";
-            this.instructionsButton.UseVisualStyleBackColor = false;
-            this.instructionsButton.Click += new System.EventHandler(this.instructionsButton_Click);
-            // 
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.Thistle;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(177, 237);
+            this.exitButton.Location = new System.Drawing.Point(177, 227);
             this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(176, 32);
@@ -93,7 +79,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(533, 374);
-            this.Controls.Add(this.instructionsButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.backLabel);
@@ -102,6 +87,7 @@
             this.Name = "PauseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PauseForm";
+            this.Load += new System.EventHandler(this.PauseForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -110,7 +96,6 @@
 
         private System.Windows.Forms.Button continueButton;
         private System.Windows.Forms.Label backLabel;
-        private System.Windows.Forms.Button instructionsButton;
         private System.Windows.Forms.Button exitButton;
     }
 }

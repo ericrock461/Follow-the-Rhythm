@@ -74,7 +74,11 @@ namespace Follow_the_Rhythm
 
         private void instructionsButton_Click(object sender, EventArgs e)
         {
-            //MainForm.ChangeScreen(this, "Instructions Screen");
+            //nevermind
+        }
+        private void PauseForm_Load(object sender, EventArgs e)
+        {
+            //oops
         }
     }
 }

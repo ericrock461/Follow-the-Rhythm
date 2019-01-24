@@ -23,14 +23,14 @@ namespace Follow_the_Rhythm
             MainForm.ChangeScreen(this, "GameScreen");
         }
 
-        private void scoresButton_Click(object sender, EventArgs e)
-        {
-            MainForm.ChangeScreen(this, "ScoreScreen");
-        }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void instructionsButton_Click(object sender, EventArgs e)
+        {
+            MainForm.ChangeScreen(this, "Instructions");
         }
 
         private void button_Enter(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Follow_the_Rhythm
             foreach (Control c in this.Controls)
             {
                 if (c is Button)
-                    c.BackColor = Color.White;
+                    c.BackColor = Color.Aquamarine;
             }
 
             //change the current button to the active colour

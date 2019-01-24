@@ -41,8 +41,7 @@
             this.countLabel = new System.Windows.Forms.Label();
             this.noteCounter = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.booLabel = new System.Windows.Forms.Label();
-            this.boCount = new System.Windows.Forms.Label();
+            this.timerCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -135,8 +134,9 @@
             // msCount
             // 
             this.msCount.AutoSize = true;
+            this.msCount.BackColor = System.Drawing.Color.Black;
             this.msCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.msCount.ForeColor = System.Drawing.Color.Red;
+            this.msCount.ForeColor = System.Drawing.Color.Snow;
             this.msCount.Location = new System.Drawing.Point(70, 232);
             this.msCount.Name = "msCount";
             this.msCount.Size = new System.Drawing.Size(36, 39);
@@ -173,35 +173,21 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "label1";
             // 
-            // booLabel
+            // timerCount
             // 
-            this.booLabel.AutoSize = true;
-            this.booLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.booLabel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.booLabel.Location = new System.Drawing.Point(36, 308);
-            this.booLabel.Name = "booLabel";
-            this.booLabel.Size = new System.Drawing.Size(38, 16);
-            this.booLabel.TabIndex = 16;
-            this.booLabel.Text = "Boo:";
-            // 
-            // boCount
-            // 
-            this.boCount.AutoSize = true;
-            this.boCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boCount.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.boCount.Location = new System.Drawing.Point(70, 290);
-            this.boCount.Name = "boCount";
-            this.boCount.Size = new System.Drawing.Size(36, 39);
-            this.boCount.TabIndex = 17;
-            this.boCount.Text = "0";
+            this.timerCount.BackColor = System.Drawing.Color.White;
+            this.timerCount.Location = new System.Drawing.Point(28, 338);
+            this.timerCount.Name = "timerCount";
+            this.timerCount.Size = new System.Drawing.Size(109, 13);
+            this.timerCount.TabIndex = 16;
+            this.timerCount.Text = "Timer Count";
             // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.boCount);
-            this.Controls.Add(this.booLabel);
+            this.Controls.Add(this.timerCount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.noteCounter);
             this.Controls.Add(this.countLabel);
@@ -238,7 +224,6 @@
         private System.Windows.Forms.Label countLabel;
         private System.Windows.Forms.Label noteCounter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label booLabel;
-        private System.Windows.Forms.Label boCount;
+        private System.Windows.Forms.Label timerCount;
     }
 }

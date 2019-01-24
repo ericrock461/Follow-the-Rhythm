@@ -70,6 +70,9 @@ namespace Follow_the_Rhythm
                 case "ScoreScreen":
                     ns = new ScoreScreen();
                     break;
+                case "Instructions":
+                    ns = new Instructions();
+                    break;
             }
 
             //centres the control on the screen
